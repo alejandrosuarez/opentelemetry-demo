@@ -625,7 +625,7 @@ services:
     ports:
       - 4317
       - 4318
-      - 8080:8080
+      - 18080:8080
     depends_on:
       elasticsearch:
         condition: service_healthy
