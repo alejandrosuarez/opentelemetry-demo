@@ -682,6 +682,7 @@ services:
       - "8888"          # metrics endpoint
     depends_on:
       - jaeger
+      - teletrace
     logging: *logging
 
   # Prometheus
