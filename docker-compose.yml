@@ -609,6 +609,44 @@ services:
       - METRICS_STORAGE_TYPE=prometheus
     logging: *logging
 
+  # Teletrace application
+  teletrace:
+    image: teletrace/teletrace:demo
+    container_name: teletrace
+    deploy:
+      resources:
+        limits:
+          memory: 100M
+    volumes:
+      - ./src/teletrace/teletrace-config.yaml:/etc/teletrace/teletrace-config.yaml
+    command: ["--config=/etc/teletrace/teletrace-config.yaml"]
+    environment:
+      - ES_ENDPOINT=http://elasticsearch:9200
+    ports:
+      - 4317
+      - 4318
+      - 8080:8080
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    logging: *logging
+
+  # Teletrace Storage Backend
+  elasticsearch:
+    image: elasticsearch:8.4.2
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g
+      - xpack.security.enabled=false
+    ports:
+      - 9200:9200
+    healthcheck:
+      test: curl -s http://elasticsearch:9200 >/dev/null || exit 1
+      interval: 3s
+      timeout: 10s
+      retries: 50
+
   # Grafana
   grafana:
     image: grafana/grafana:9.1.0

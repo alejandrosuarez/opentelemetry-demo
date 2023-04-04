@@ -1,0 +1,27 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+      http:
+
+processors:
+  batch:
+  attributes:
+    actions:
+      - key: app.ads.contextKeys.count
+        action: delete
+  transform:
+    traces:
+      statements:
+        - set(status.code, 1) where status.code == 0
+
+exporters:
+  elasticsearch:
+    endpoints: ["${ES_ENDPOINT}"]
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [transform, attributes, batch]
+      exporters: [elasticsearch]
