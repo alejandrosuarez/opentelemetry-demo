@@ -35,11 +35,31 @@ If you'd like to extend this demo or maintain a fork of it, read our
 
 ## Quick start
 
-You can be up and running with the demo in a few minutes. Check out the docs for
-your preferred deployment method:
+### Prerequisites
 
-- [Docker](https://opentelemetry.io/docs/demo/docker_deployment/)
-- [Kubernetes](https://opentelemetry.io/docs/demo/kubernetes_deployment/)
+- Docker
+- Docker Compose v2.0.0+
+- 4 GB of RAM for the application
+
+### Running this demo
+
+```bash
+git clone https://github.com/teletrace/opentelemetry-demo.git
+cd opentelemetry-demo
+
+docker compose up --no-build
+```
+
+### Services
+
+Once the images are built and containers are started you can access:
+
+- Webstore: http://localhost:8080/
+- Grafana: http://localhost:8080/grafana/
+- Feature Flags UI: http://localhost:8080/feature/
+- Load Generator UI: http://localhost:8080/loadgen/
+- Jaeger UI: http://localhost:8080/jaeger/ui/
+- Teletrace UI: http://localhost:18080/
 
 ## Documentation
 
@@ -61,7 +81,7 @@ keeping it up to date for you.
 | [Coralogix](https://coralogix.com/blog/configure-otel-demo-send-telemetry-data-coralogix)                         | [Instana](https://github.com/instana/opentelemetry-demo)          | [Sumo Logic](https://www.sumologic.com/blog/common-opentelemetry-demo-application/)          |
 | [Datadog](https://github.com/DataDog/opentelemetry-demo)                                                          | [Kloudfuse](https://github.com/kloudfuse/opentelemetry-demo)      | [TelemetryHub](https://github.com/TelemetryHub/opentelemetry-demo/tree/telemetryhub-backend) |
 | [Dynatrace](https://www.dynatrace.com/news/blog/opentelemetry-demo-application-with-dynatrace/)                   | [Lightstep](https://github.com/lightstep/opentelemetry-demo)      | [Uptrace](https://github.com/uptrace/uptrace/tree/master/example/opentelemetry-demo)         |
-| [Elastic](https://github.com/elastic/opentelemetry-demo)                                                          |                                                                   |                                                                                              |
+| [Elastic](https://github.com/elastic/opentelemetry-demo)                                                          | [Teletrace](https://github.com/teletrace/opentelemetry-demo)      |                                                                                              |
 |                                                                                                                   |                                                                   |                                                                                              |
 
 ## Contributing
