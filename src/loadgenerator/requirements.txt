@@ -8,7 +8,7 @@ deprecated==1.2.13
 flask==2.3.2
 flask-basicauth==0.2.0
 flask-cors==3.0.10
-gevent==22.10.2
+gevent==24.10.1
 geventhttpclient==2.0.9
 googleapis-common-protos==1.59.0
 greenlet==2.0.2
@@ -35,7 +35,7 @@ roundrobin==0.0.4
 six==1.16.0
 typing-extensions==4.5.0
 urllib3==1.26.15
-werkzeug==2.3.3
+werkzeug==3.0.6
 wrapt==1.15.0
 zope-event==4.6
 zope-interface==6.0
